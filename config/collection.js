@@ -1,0 +1,5 @@
+module.exports={
+    BOOK_COLLECTION:"BOOK",
+    USER_COLLECTION:"USER",
+    ADMIN_COLLECTION:"ADMIN"
+}
