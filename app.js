@@ -6,6 +6,7 @@ const AdminRouter=require('./routes/Admin')
 
 const db = require('./config/connection');
 const PORT = process.env.PORT || 3001;
+// require('./models/db')
 
 const app = express();
 

@@ -4,6 +4,7 @@ const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken');
 const { ObjectId } = require("mongodb");
 
+
 module.exports = {
     signup: async (req, res) => {
         const { firstName, lastName, email, password } = req.body
@@ -16,6 +17,7 @@ module.exports = {
 
             let user = await db.get().collection(collection.USER_COLLECTION).findOne({ _id: result.insertedId })
             console.log(user);
+
             const token = jwt.sign({ email: user.email, id: user._id }, 'secret', { expiresIn: "1h" })
 
             return res.status(200).json({ Status: "Signup Ok", user, token })
@@ -57,6 +59,7 @@ module.exports = {
             if (Book.Availeblity === true) {
                 db.get().collection(collection.BOOK_COLLECTION).updateOne({ _id: ObjectId(id) },
                     { $set: { Availeblity: false } })
+                
                 res.status(200).json({ Status: "Sucessfully Borrowed" })
             } else {
                 res.status(400).json({ Status: "Not Available" })

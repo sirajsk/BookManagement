@@ -7,5 +7,5 @@ router.post('/login',userController.login)
 router.post('/signup',userController.signup)
 router.post('/BorrowBook/:id',userController.BorrowBook)
 router.post('/ReturnBook/:id',userController.ReturnBook)
-router.post('/allBooks',userController.allBooks)
+router.get('/allBooks',userController.allBooks)
 module.exports = router;
